@@ -25,3 +25,9 @@
     )
     rgb(var(--background-start-rgb));
 } */
+
+.hero-bg{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../../public/images/heroImage.png);
+background-repeat: no-repeat;
+background-size: cover;
+}
