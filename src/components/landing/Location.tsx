@@ -1,6 +1,5 @@
 "use client";
 
-import { FiMapPin } from "react-icons/fi";
 import { Button } from "../utils/Button";
 
 const Location: React.FC = () => {

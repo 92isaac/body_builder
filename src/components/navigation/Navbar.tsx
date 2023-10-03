@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 export const Navbar = () => {
   const { toggle, handleChange } = UseContextGlobal()
   return (
-    <nav className="fixed bg-black w-full py-2 text-white px-5 md:px-10">
+    <nav className="fixed bg-black w-full py-2 text-white px-5 md:px-10 z-50">
       <div className=" flex justify-between items-center gap-5 ">
 
     <Logo />
