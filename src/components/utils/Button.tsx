@@ -11,7 +11,7 @@ interface ButtonProps{
 export const Button:React.FC<ButtonProps> = ({className, title, link, OnClick}) => {
   return (
     <div>
-        <button className={`border-0 text-white px-5 py-1.5 rounded-sm bg-gradient-to-br ${className}`}  type='button' onClick={OnClick}><Link href={link}>{title}</Link></button>
+        <button className={`border-0 text-white px-5 py-1.5 rounded-sm  ${className}`}  type='button' onClick={OnClick}><Link href={link}>{title}</Link></button>
     </div>
   )
 }
