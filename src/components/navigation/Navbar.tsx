@@ -16,7 +16,7 @@ export const Navbar = () => {
       <ul className="hidden md:flex justify-between gap-5 items-center">
       {navItems.map((item) => (
             <li key={item.id} className="py-5">
-              <Link href={item.path} className="font-[Montserrat]" onClick={handleChange}>
+              <Link href={item.path} className="font-[Montserrat]">
                 {item.name}
               </Link>
             </li>
