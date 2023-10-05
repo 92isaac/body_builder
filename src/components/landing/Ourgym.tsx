@@ -25,7 +25,7 @@ const Ourgym = () => {
         width={200}
         height={500}
         objectFit="contain"
-        className="absolute cursor-pointer h-full -top-20 right-0 md:right-[20%]"
+        className="absolute cursor-pointer h-full -top-10 md:-top-20 right-0 md:right-[20%]"
       />
       <PinkDivider />
     </div>

@@ -11,7 +11,9 @@ export default function Home() {
       <LocationContainer />
       <Altiraser text='Altiras #1' title='Our gym is your  gym' description="Kick your feet up! With a gym designed around you, we think you’ll love it here."/>
       <Ourgym />
+      <div className="mt-20 md:mt-0">
       <Altiraser text="Altiras #2" title="We are here to help you" description="no matter where you start from, no matter where you are going to."/>
+      </div>
       <HeroHelp />
       <Altiraser text="Altiras #3" title="Energy is for Everyone" description="Believe in the power of a motivating group fitness community."/>
      </main>
