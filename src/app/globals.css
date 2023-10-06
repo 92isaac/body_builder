@@ -37,3 +37,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.hoverState:hover .card-text{
+  display: block;
+  opacity: 100%;
+}

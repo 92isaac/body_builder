@@ -1,4 +1,5 @@
 import { Altiraser } from "@/components/landing/Altiraser";
+import ExerciseGallery from "@/components/landing/ExerciseGallery";
 import { Hero } from "@/components/landing/Hero";
 import HeroHelp from "@/components/landing/HeroHelp";
 import LocationContainer from "@/components/landing/LocationContainer";
@@ -16,6 +17,7 @@ export default function Home() {
       </div>
       <HeroHelp />
       <Altiraser text="Altiras #3" title="Energy is for Everyone" description="Believe in the power of a motivating group fitness community."/>
+      <ExerciseGallery />
      </main>
   )
 }
