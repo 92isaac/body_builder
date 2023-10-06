@@ -1,4 +1,4 @@
-import { exercise1, lotus } from "@/asset/images";
+import { exercise1, exercise2, exercise3, exercise4, lotus } from "@/asset/images";
 import Image from "next/image";
 
 const ExerciseGallery = () => {
@@ -35,3 +35,43 @@ const ExerciseGallery = () => {
 };
 
 export default ExerciseGallery;
+
+
+const exerciseCardData =[
+    {
+        id:"1",
+        image:exercise1,
+        title:'Light weight',
+        description:"Improves strength, balance and flexibility.",
+    },
+    {
+        id:"2",
+        image:exercise2,
+        title:"the ride",
+        description:"",
+    },
+    {
+        id:"3",
+        image:exercise3,
+        title:"Action sport",
+        description:"Improves strength, balance and flexibility.",
+    },
+    {
+        id:"4",
+        image:exercise4,
+        title:"Something different ",
+        description:"Improves strength, balance and flexibility.",
+    },
+    {
+        id:"5",
+        image:exercise2,
+        title:"Mind body burn",
+        description:"Improves strength, balance and flexibility.",
+    },
+    {
+        id:"6",
+        image:exercise1,
+        title:"Light weight",
+        description:"Improves strength, balance and flexibility.",
+    },
+]
