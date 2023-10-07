@@ -23,7 +23,7 @@ const Location: React.FC = () => {
     <div className="flex justify-center items-center gap-5">
       <Button
         title="Get Location"
-        className="mt-4  pt-2  bg-white text-[rgb(255,94,14)]"
+        className="mt-4  pt-2  bg-white text-[red]"
         link=""
         OnClick={() => {
           getLocation();
@@ -31,7 +31,7 @@ const Location: React.FC = () => {
       />
       <Button
         title="Join Now"
-        className="mt-4  pt-2 bg-white text-[rgb(255,94,14)]"
+        className="mt-4  pt-2 bg-white text-[red]"
         link="/"
         OnClick={() => {
         }}

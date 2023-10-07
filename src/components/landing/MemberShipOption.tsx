@@ -15,7 +15,7 @@ export const MemberShipOption = () => {
         <FiMapPin className="mr-2 inline-block ml-1" />
       </h1>
       <div>
-        <Button link="/" title="see our membership options" className="text-[rgb(255,94,14)] uppercase tracking-wider bg-white mt-5" OnClick={()=>{}}/>
+        <Button link="/" title="see our membership options" className="text-[red] uppercase tracking-wider bg-white mt-5" OnClick={()=>{}}/>
       </div>
     </MultiColorContainer>
   );

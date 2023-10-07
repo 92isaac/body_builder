@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Open_Sans } from "next/font/google";
 import { ContextProvider } from "@/hooks/Context";
+import { Footer } from "@/components/navigation/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 const openSans = Open_Sans({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ContextProvider>
           <Navbar />
           {children}
+          <Footer />
         </ContextProvider>
       </body>
     </html>
