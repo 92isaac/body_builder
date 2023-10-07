@@ -1,13 +1,20 @@
-"use client";
+"use client"
 
 import React, { useEffect } from "react";
 
 interface VideoProps {
   src: string;
-  title: string;
+  autoPlay: boolean;
+  muted: boolean;
+  loop: boolean;
 }
 
-export const VideoPlayer: React.FC<VideoProps> = ({ src, title }) => {
+export const VideoPlayer: React.FC<VideoProps> = ({
+  src,
+  autoPlay,
+  muted,
+  loop,
+}) => {
   useEffect(() => {
     const iframe = document.querySelector("iframe");
 
@@ -16,28 +23,17 @@ export const VideoPlayer: React.FC<VideoProps> = ({ src, title }) => {
       const video = contentWindow.document.querySelector("video");
 
       if (video) {
-        video.muted = true;
-      }
-
-      if (video) {
-        video.autoplay = true;
-      }
-
-      if (video) {
+        video.muted = muted;
+        video.autoplay = autoPlay;
+        video.loop = loop;
         video.controls = false;
       }
     }
-  }, []);
+  }, [src, autoPlay, muted, loop]);
 
   return (
-    <div className="relative flex w-full justify-center items-center">
-      <iframe
-        src={src}
-        title={title}
-        className="w-[70%] aspect-video"
-        allowFullScreen
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      ></iframe>
+    <div className="relative flex w-full justify-center items-center py-5">
+      <video src={src} className="md:w-[70%] aspect-video" autoPlay={autoPlay} muted={muted} loop={loop} />
     </div>
   );
 };

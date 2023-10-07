@@ -4,6 +4,7 @@ import ExerciseGallery from "@/components/landing/ExerciseGallery";
 import { Hero } from "@/components/landing/Hero";
 import HeroHelp from "@/components/landing/HeroHelp";
 import LocationContainer from "@/components/landing/LocationContainer";
+import { MemberShipOption } from "@/components/landing/MemberShipOption";
 import Ourgym from "@/components/landing/Ourgym";
 import { VideoPlayer } from "@/components/landing/VideoPlayer";
 
@@ -21,7 +22,9 @@ export default function Home() {
       <Altiraser text="Altiras #3" title="Energy is for Everyone" description="Believe in the power of a motivating group fitness community."/>
       <ExerciseGallery />
       <Altiraser text="Altiras #4" title="Goals are Made to be Achieved" description="Train with our experts to drive your results."/>
-      <VideoPlayer src={dywaneJohnson} title="work session with Dywane Johnson"/>
+      <VideoPlayer src={dywaneJohnson} autoPlay={true} muted loop/>
+      <MemberShipOption />
+      
      </main>
   )
 }
