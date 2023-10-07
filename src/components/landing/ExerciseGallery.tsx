@@ -9,33 +9,33 @@ import Image from "next/image";
 
 const ExerciseGallery = () => {
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid md:grid-cols-3 gap-5">
       {exerciseCardData.map((data) => (
-        <div className="relative" key={data.id}>
+        <div className="relative items-center" key={data.id}>
           <div className="w-full my-1 md:w-[200px] md:h-[280px] lg:w-[250px] lg:h-[330px] relative overflow-hidden">
             <Image
-              src={exercise1}
+              src={data.image}
               width={220}
               height={300}
               alt="project "
               className="projectimg w-full cursor-pointer h-full object-cover transform hover:scale-105 transition duration-1000 ease-in-out"
             />
           </div>
-          <div className="hoverState absolute h-fit bottom-0 bg-black left-0 w-full text-white transition text-center opacity-100 hover:opacity-50 hover:h-[70%]">
+          <div className="hoverState absolute h-fit bottom-0 bg-black left-0 w-full text-white transition text-center opacity-100 hover:opacity-50 hover:h-[70%] z-40">
             <div className="relative">
-              <div className="absolute rounded-full bg-black border-white border-4 transform left-[50%] translate-x-[-50%] translate-y-[-50%]">
+              <div className="absolute rounded-full bg-black border-white border-2 transform left-[50%] translate-x-[-50%] translate-y-[-50%]">
                 <Image
                   src={lotus}
                   width={500}
                   height={500}
                   alt="project "
-                  className="cursor-pointer p-2 w-full border rounded-full h-full object-cover"
+                  className="cursor-pointer p-1 w-full border rounded-full h-full object-cover"
                 />
               </div>
-              <h1 className="text-lg pt-7 text-center opacity-100">
-                Light weight
+              <h1 className="pt-7 pb-3 uppercase text-center opacity-100 z-50 relative">
+                {data.title}
               </h1>
-              <p className="hidden text-sm card-text">
+              <p className="hidden text-sm card-text z-50 relative">
                 Improves strength, balance and flexibility.
               </p>
             </div>
@@ -75,7 +75,7 @@ const exerciseCardData = [
   },
   {
     id: "5",
-    image: exercise2,
+    image: exercise3,
     title: "Mind body burn",
     description: "Improves strength, balance and flexibility.",
   },
