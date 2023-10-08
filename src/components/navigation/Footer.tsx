@@ -4,7 +4,7 @@ import { FaSquareXTwitter, FaYoutube } from 'react-icons/fa6'
 
 export const Footer = () => {
   return (
-    <footer className='flex justify-between items-center gap-10 py-16 px-24 bg-black text-white '>
+    <footer className='md:flex justify-evenly items-center py-16 px-2 md:px-24 bg-black text-white text-sm'>
         <div className="">
             <div className='flex gap-4'>
                 <FaFacebookF className="text-2xl"/>
@@ -17,7 +17,7 @@ export const Footer = () => {
                 <h3>ALL RIGHTS RESERVED</h3>
             </div>
         </div>
-        <div className="">
+        <div className="pt-10 md:pt-0">
             <h1>FREE TRIAL / JOIN</h1>
             <h3>CONTACT * TERMS OF USE * <br/> PRIVACY POLICY * COOKIES <br/> SETTINGS</h3>
         </div>
