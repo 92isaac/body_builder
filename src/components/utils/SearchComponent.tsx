@@ -1,5 +1,6 @@
 "use client"
 
+import { UseContextGlobal } from '@/hooks/Context';
 import React, { useState } from 'react';
 import { FcSearch } from 'react-icons/fc'
 
@@ -8,10 +9,12 @@ interface SearchComponentProps {
 }
 
 const SearchComponent: React.FC<SearchComponentProps> = () => {
+    const { searchData, handleSearch } = UseContextGlobal()
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSearchClick = () => {
     setIsExpanded(!isExpanded);
+    console.log('first')
   };
 
   return (
@@ -20,6 +23,8 @@ const SearchComponent: React.FC<SearchComponentProps> = () => {
         type="text"
         placeholder="Search..."
         className="p-2 text-sm bg-gray-100 rounded-l outline-none"
+        value={searchData}
+        onChange={handleSearch}
       />
       <button
         className="p-2 bg-gradient-to-br from-[#FF26B9] to-[#FF5E0E] hover:from-[#FF5E0E] hover:to-[#d434fe] text-white rounded-r cursor-pointer"

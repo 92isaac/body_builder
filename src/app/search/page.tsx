@@ -4,9 +4,9 @@
 import SearchComponent from "@/components/utils/SearchComponent";
 import { useEffect, useState } from "react";
 
-export default async function Page() {
+export default function Page() {
   const [data, setData] = useState([]);
-  const [bodyPart, setBodyPart] = useState("");
+  const [bodyPart, setBodyPart] = useState("chest");
 
   useEffect(() => {
     const getSearchData = async () => {
@@ -27,6 +27,7 @@ export default async function Page() {
 
         const result = await data.json();
         setData(result);
+        console.log(result)
       } catch (e) {
         console.log(e);
       }
@@ -34,8 +35,8 @@ export default async function Page() {
     getSearchData();
   }, [bodyPart]);
 
-  return     <main className="flex min-h-screen flex-col md:pt-20">
+  return     <main className="flex min-h-screen flex-col pt-14 md:pt-20">
     <SearchComponent />
-    
+
   </main>;
 }

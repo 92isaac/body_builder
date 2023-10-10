@@ -6,9 +6,11 @@ import { useRef, useState, createContext, useContext, ReactNode, useEffect } fro
 interface GlobalData {
   toggle: boolean;
   isSmallScreen: boolean;
+  searchData: string;
   divRef: any;
   handleChange: (nextChecked: boolean) => void;
   handleClick:()=> void;
+  handleSearch:(  e: React.ChangeEvent<HTMLInputElement> )=> void;
 }
 
 export const AppContext = createContext<GlobalData | null | any >(null);
@@ -19,6 +21,7 @@ interface AppProviderProps {
 
 export const ContextProvider = ({ children }: AppProviderProps) => {
   const [toggle, setToggle] = useState(false);
+  const [searchData, setSearchData] = useState('');
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -34,6 +37,9 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
     setToggle(!toggle);
   };
 
+  const handleSearch = ( e: React.ChangeEvent<HTMLInputElement>)=>{
+    setSearchData(e.target.value);
+  }
 
 
   useEffect(() => {
@@ -56,8 +62,10 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
     toggle,
     divRef,
     isSmallScreen,
+    searchData,
     handleChange,
     handleClick,
+    handleSearch,
   };
 
   return (
