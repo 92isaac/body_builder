@@ -2,7 +2,15 @@
 
 
 import SearchComponent from "@/components/utils/SearchComponent";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+
+interface Exercise {
+    id: string;
+    equipment: string;
+    gifUrl: string;
+  }
+
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -38,5 +46,12 @@ export default function Page() {
   return     <main className="flex min-h-screen flex-col pt-14 md:pt-20">
     <SearchComponent />
 
+
+  {data.map((item: Exercise)=>(
+    <div key={item?.id}>
+        <h1>{item?.equipment}</h1>
+        <Image src={item?.gifUrl} width={200} height={200} alt='exercise gif' />
+    </div>
+  ))}
   </main>;
 }
