@@ -14,11 +14,11 @@ interface Exercise {
 
 export default function Page() {
   const [data, setData] = useState([]);
-  const [bodyPart, setBodyPart] = useState("chest");
+  const [bodyPart, setBodyPart] = useState("all");
 
   useEffect(() => {
     const getSearchData = async () => {
-      const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`;
+      const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPartList/${bodyPart}`;
       try {
         const data = await fetch(url, {
           method: "GET",
