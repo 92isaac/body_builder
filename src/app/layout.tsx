@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter, Open_Sans } from "next/font/google";
 import { ContextProvider } from "@/hooks/Context";
 import { Footer } from "@/components/navigation/Footer";
+import { favicon } from "@/asset/images";
 
 // const inter = Inter({ subsets: ["latin"] });
 const openSans = Open_Sans({
@@ -14,6 +15,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Body Builder",
   description: "A body building web application",
+  icons: favicon,
 };
 
 export default function RootLayout({

@@ -7,6 +7,7 @@ interface GlobalData {
   toggle: boolean;
   isSmallScreen: boolean;
   searchData: string;
+  // allExercise: [];
   divRef: any;
   handleChange: (nextChecked: boolean) => void;
   handleClick:()=> void;
@@ -24,6 +25,7 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
   const [searchData, setSearchData] = useState('');
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  // const [allExercise, setAllExercise] = useState([]);
 
 
 
@@ -44,7 +46,7 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) { // Adjust the threshold as needed
+      if (window.innerWidth <= 768) { 
         setIsSmallScreen(true);
       } else {
         setIsSmallScreen(false);
@@ -63,6 +65,7 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
     divRef,
     isSmallScreen,
     searchData,
+    // allExercise,
     handleChange,
     handleClick,
     handleSearch,
