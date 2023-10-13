@@ -72,6 +72,7 @@ export default async function Page() {
         <div className="md:5/6 lg:w-4/6 w-full min-h-screen place-items-center grid md:grid-cols-2 gap-5">
           {data.map((item: any) => (
             <div key={item?.id} className="shadow p-5 mx-auto w-[90%] md:w-auto md:mx-0">
+              <Link href={`/diy/${item?.id}`}>
               <h1 className="font-bold text-2xl capitalize">{item?.name}</h1>
               <p className="font-bold">{item?.target}</p>
               <Image
@@ -90,6 +91,7 @@ export default async function Page() {
                     ))}
                   </div>
               </div>
+              </Link>
             </div>
           ))}
         </div>

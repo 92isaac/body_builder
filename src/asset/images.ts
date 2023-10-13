@@ -14,4 +14,5 @@ export const exercise4 = `${imagePath}/4.png`
 export const lotus = `${imagePath}/Lotus.png`
 export const favicon = `${imagePath}/workout.png`
 export const banner = `${imagePath}/banner.png`
+export const leftArrow = `${imagePath}/left-arrow.png`
 
