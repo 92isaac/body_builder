@@ -2,6 +2,9 @@
 
 
 import SearchComponent from "@/components/utils/SearchComponent";
+import { UseContextGlobal } from "@/hooks/Context";
+import PageData from "@/hooks/fetchdata";
+import useDebounce from "@/hooks/useDebounce";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -13,45 +16,58 @@ interface Exercise {
 
 
 export default function Page() {
-  const [data, setData] = useState([]);
-  const [bodyPart, setBodyPart] = useState("all");
-
+  const [error, setError] = useState(false)
+  const { searchData, handleSearch } = UseContextGlobal();
+  const [finalData, setFinalData] = useState([]);
+  const [mergedData, setMergedData] = useState(null);
+  const debouncedSearchValue = useDebounce(searchData, 1000)
+  
+  const handleSearchBtn = async () => {
+    if (searchData) {
+      const getSearchData = async () => {
+        const [cardioData, data, backData] = await PageData();
+        const mergedData = cardioData.concat(data, backData);
+        console.log(mergedData);
+        setMergedData(mergedData);
+      };
+      getSearchData();
+    }
+  };
+  
   useEffect(() => {
-    const getSearchData = async () => {
-      const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPartList/${bodyPart}`;
-      try {
-        const data = await fetch(url, {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "9325cd097emshdb79d348a3a8ce5p1a3a31jsn85a715f699ed",
-            "X-RapidAPI-Host":
-              "exercisedb.p.rapidapi.com/exercises/bodyPartList",
-          },
-        });
-        if (!data.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const result = await data.json();
-        setData(result);
-        console.log(result)
-      } catch (e) {
-        console.log(e);
+    const updateFinalData = () => {
+      if (mergedData) {
+        const searchedExercises = (mergedData as any[])?.filter(
+          (item:any) =>
+            item.name.toLowerCase().includes(searchData) ||
+            item.target.toLowerCase().includes(searchData) ||
+            item.equipment.toLowerCase().includes(searchData) ||
+            item.bodyPart.toLowerCase().includes(searchData)
+        );
+        setFinalData(searchedExercises);
       }
     };
-    getSearchData();
-  }, [bodyPart]);
+  
+    updateFinalData();
+  }, [mergedData, searchData]);
+  
+  // ...
+  
+
+console.log(finalData)
 
   return     <main className="flex min-h-screen flex-col pt-14 md:pt-20">
-    <SearchComponent />
+    <SearchComponent search={searchData} handleChange={handleSearch} handleClick={()=>{handleSearchBtn()}}/>
 
-
-  {data.map((item: Exercise)=>(
+<div className="py-5">
+  {finalData && <h1 className="font-bold text-lg">Search resultfor <span className="italic">{searchData}</span></h1>}
+</div>
+  {finalData?.map((item: Exercise)=>(
     <div key={item?.id}>
-        <h1>{item?.equipment}</h1>
         <Image src={item?.gifUrl} width={200} height={200} alt='exercise gif' />
     </div>
   ))}
+
+  {error ? (<h1>Something went wrong</h1>) : null}
   </main>;
 }

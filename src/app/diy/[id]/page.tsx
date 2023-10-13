@@ -1,4 +1,4 @@
-import { leftArrow } from "@/asset/images";
+import { MemberShipOption } from "@/components/landing/MemberShipOption";
 import Image from "next/image";
 import Link from "next/link";
 import { GrPrevious } from 'react-icons/gr'
@@ -27,8 +27,8 @@ const Page: React.FC<PageProps> = async ({ params }) => {
   const data = await getData(params?.id);
   console.log(data);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-10 pt-32 md:pt-20">
-      <div className="md:flex items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-32 md:pt-20">
+      <div className="md:flex items-center justify-between px-10">
         <div className="flex-1">
         <h1 className="md:hidden block font-bold text-[30px] capitalize">{data?.name}</h1>
           <Image
@@ -87,6 +87,7 @@ const Page: React.FC<PageProps> = async ({ params }) => {
           prev
         </Link>
       </div>
+      <MemberShipOption />
     </main>
   );
 };

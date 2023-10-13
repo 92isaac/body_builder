@@ -1,21 +1,18 @@
 "use client"
 
-import { UseContextGlobal } from '@/hooks/Context';
 import React, { useState } from 'react';
+import { UseContextGlobal } from '@/hooks/Context';
 import { FcSearch } from 'react-icons/fc'
 
 interface SearchComponentProps {
-  // Define any props here (if needed)
+  search:string,
+  handleChange:()=> void;
+  handleClick:()=> void;
 }
 
-const SearchComponent: React.FC<SearchComponentProps> = () => {
-    const { searchData, handleSearch } = UseContextGlobal()
-  const [isExpanded, setIsExpanded] = useState(false);
+const SearchComponent: React.FC<SearchComponentProps> = ({search, handleClick, handleChange}) => {
+  const {isExpanded, handleSearchClick} = UseContextGlobal();
 
-  const handleSearchClick = () => {
-    setIsExpanded(!isExpanded);
-    console.log('first')
-  };
 
   return (
     <div className={`flex py-10 items-center transition-width duration-300 ${isExpanded ? 'w-48' : 'w-10'}`}>
@@ -23,12 +20,15 @@ const SearchComponent: React.FC<SearchComponentProps> = () => {
         type="text"
         placeholder="Search..."
         className="p-2 text-sm bg-gray-100 rounded-l outline-none"
-        value={searchData}
-        onChange={handleSearch}
+        value={search}
+        onChange={handleChange}
       />
       <button
         className="p-2 bg-gradient-to-br from-[#FF26B9] to-[#FF5E0E] hover:from-[#FF5E0E] hover:to-[#d434fe] text-white rounded-r cursor-pointer"
-        onClick={handleSearchClick}
+        onClick={()=>{
+            handleSearchClick()
+            handleClick()
+        }}
         title='search btn'
       >
        <FcSearch/>

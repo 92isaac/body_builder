@@ -11,7 +11,7 @@ const Banner = () => {
             <h1 className="text-5xl font-black">
               Sweet, Smile <br /> and repeat
             </h1>
-            <p className="mb-3">Check effective exercise</p>
+            <p className="mb-3">Check effective exercise. Do it at the comfort of your home</p>
             <Link href={"/search"} className="border py-2 px-4 rounded-md bg-gradient-to-br from-[#FF26B9] to-[#FF5E0E] text-white">Search / Explore</Link>
           </div>
 

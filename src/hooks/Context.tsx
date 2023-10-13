@@ -6,10 +6,12 @@ import { useRef, useState, createContext, useContext, ReactNode, useEffect } fro
 interface GlobalData {
   toggle: boolean;
   isSmallScreen: boolean;
+  isExpanded: boolean;
   searchData: string;
   // allExercise: [];
   divRef: any;
   handleChange: (nextChecked: boolean) => void;
+  handleSearchClick: (nextChecked: boolean) => void;
   handleClick:()=> void;
   handleSearch:(  e: React.ChangeEvent<HTMLInputElement> )=> void;
 }
@@ -26,7 +28,11 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   // const [allExercise, setAllExercise] = useState([]);
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const handleSearchClick = () => {
+    setIsExpanded(!isExpanded);  
+  };
 
 
   const handleClick = () => {
@@ -65,10 +71,11 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
     divRef,
     isSmallScreen,
     searchData,
-    // allExercise,
+    isExpanded,
     handleChange,
     handleClick,
     handleSearch,
+    handleSearchClick,
   };
 
   return (
