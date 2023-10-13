@@ -1,3 +1,4 @@
+import Banner from "@/components/diy/Banner";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -51,7 +52,7 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between md:pt-20">
-      <Link href={"/search"}>Search</Link>
+      <Banner />
       <div className="flex justify-center items-star gap-4">
         <div className="hidden md:block md:w-1/6 border min-h-screen">
           {backData.map((item: any) => (
@@ -83,7 +84,7 @@ export default async function Page() {
               <div className="flex justify-center items-center">
                   <div className="flex justify-between gap-4 nth">
                     {item?.secondaryMuscles?.map((muscle:any, index:any)=>(
-                      <span key={index} className="text-sm py-1 md:px-2 lg:px-4 rounded-md shadow-2xl text-white">
+                      <span key={index} className="text-sm py-1 px-1 md:px-2 lg:px-4 rounded-md shadow-2xl text-white">
                         {muscle}
                       </span>
                     ))}
