@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
-  const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/chest";
+  const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/waist";
 
   const response = await fetch(url, {
     method: "GET",
@@ -14,7 +14,7 @@ const getData = async () => {
   return response.json();
 };
 const getCardio = async () => {
-  const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/cardio";
+  const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/chest";
 
   const response = await fetch(url, {
     method: "GET",
@@ -52,13 +52,11 @@ export default async function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between md:pt-20">
       <Link href={"/search"}>Search</Link>
-
       <div className="flex justify-center items-star gap-4">
-        <div className="hidden md:block w-1/4 border min-h-screen">
+        <div className="hidden md:block md:w-1/6 border min-h-screen">
           {backData.map((item: any) => (
-            <div key={item?.id} className="shadow p-5">
-              <h1>{item?.equipment}</h1> 
-              <p>{item?.target}</p>
+            <div key={item?.id} className="shadow p-5 my-2 gap-y-3">
+              {/* <h1>{item?.equipment}</h1>  */}
               <Image
                 src={item?.gifUrl}
                 width={400}
@@ -66,14 +64,15 @@ export default async function Page() {
                 alt="exercise gif"
                 className="object-contain"
               />
+              <p className="text-center capitalize pt-5 font-bold">{item?.target}</p>
             </div>
           ))}
         </div>
-        <div className="md:w-2/4 w-full min-h-screen place-items-center grid md:grid-cols-2 gap-5">
+        <div className="md:5/6 lg:w-4/6 w-full min-h-screen place-items-center grid md:grid-cols-2 gap-5">
           {data.map((item: any) => (
             <div key={item?.id} className="shadow p-5 mx-auto w-[90%] md:w-auto md:mx-0">
-              <h1>{item?.equipment}</h1>
-              <p>{item?.target}</p>
+              <h1 className="font-bold text-2xl capitalize">{item?.name}</h1>
+              <p className="font-bold">{item?.target}</p>
               <Image
                 src={item?.gifUrl}
                 width={500}
@@ -81,14 +80,23 @@ export default async function Page() {
                 alt="exercise gif"
                 className="object-contain h-full"
               />
+              <div className="flex justify-center items-center">
+                  <div className="flex justify-between gap-4 nth">
+                    {item?.secondaryMuscles?.map((muscle:any, index:any)=>(
+                      <span key={index} className="text-sm py-1 md:px-2 lg:px-4 rounded-md shadow-2xl text-white">
+                        {muscle}
+                      </span>
+                    ))}
+                  </div>
+              </div>
             </div>
           ))}
         </div>
-        <div className="hidden md:block w-1/4 border min-h-screen">
+        <div className="hidden lg:block w-1/6 border min-h-screen">
           {cardioData.map((item: any) => (
-            <div key={item?.id} className="shadow p-5">
-              <h1>{item?.equipment}</h1>
-              <p>{item?.target}</p>
+            <div key={item?.id} className="shadow p-5 my-2 gap-y-3">
+              {/* <h1>{item?.equipment}</h1> */}
+              {/* <p>{item?.target}</p> */}
               <Image
                 src={item?.gifUrl}
                 width={400}
@@ -96,6 +104,7 @@ export default async function Page() {
                 alt="exercise gif"
                 className="object-contain"
               />
+              <p className="text-center capitalize pt-5 font-bold">{item?.target}</p>
             </div>
           ))}
         </div>

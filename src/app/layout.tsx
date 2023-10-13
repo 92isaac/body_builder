@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navigation/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Inter, Open_Sans, Josefin_Sans } from "next/font/google";
 import { ContextProvider } from "@/hooks/Context";
 import { Footer } from "@/components/navigation/Footer";
 import { favicon } from "@/asset/images";
@@ -11,6 +11,8 @@ const openSans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
 })
+
+const JosefinSans = Josefin_Sans({subsets:['latin'], display: "swap"})
 
 export const metadata: Metadata = {
   title: "Body Builder",
@@ -25,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body className={JosefinSans.className}>
         <ContextProvider>
           <Navbar />
           {children}

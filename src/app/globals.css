@@ -42,3 +42,10 @@
   display: block;
   opacity: 100%;
 }
+
+.nth span:nth-child(odd){
+  background-color: #ffa9a9;
+}
+.nth span:nth-child(even){
+  background-color: #fcc757;
+}
