@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GrPrevious } from 'react-icons/gr'
 
+
 export async function getData(id: string) {
   const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
 

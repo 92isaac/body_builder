@@ -2,6 +2,7 @@
 
 
 import { useRef, useState, createContext, useContext, ReactNode, useEffect } from "react";
+import useDebounce from "./useDebounce";
 
 interface GlobalData {
   toggle: boolean;
@@ -29,6 +30,8 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   // const [allExercise, setAllExercise] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const debouncedSearchValue = useDebounce(searchData, 1000)
+
 
   const handleSearchClick = () => {
     setIsExpanded(!isExpanded);  
@@ -46,7 +49,7 @@ export const ContextProvider = ({ children }: AppProviderProps) => {
   };
 
   const handleSearch = ( e: React.ChangeEvent<HTMLInputElement>)=>{
-    setSearchData(e.target.value);
+    debouncedSearchValue(setSearchData(e.target.value));
   }
 
 
