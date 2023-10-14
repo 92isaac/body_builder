@@ -23,6 +23,7 @@ export default function Page() {
     if (searchData) {
       if (mergedData !== null) {
         console.log("not empty");
+        console.log(mergedData)
         const searchedExercises: any = (mergedData as any[])?.filter(
           (item: any) =>
             item.name.toLowerCase().includes(searchData) ||

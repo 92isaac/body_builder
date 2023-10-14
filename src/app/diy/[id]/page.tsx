@@ -24,7 +24,7 @@ interface PageProps {
   };
 }
 
-const Page: React.FC<PageProps> = async ({ params }) => {
+export default async function Page( params: any) {
   const data = await getData(params?.id);
   console.log(data);
   return (
@@ -93,4 +93,3 @@ const Page: React.FC<PageProps> = async ({ params }) => {
   );
 };
 
-export default Page;
