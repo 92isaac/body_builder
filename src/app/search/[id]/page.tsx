@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const page = () => {
+export default async function Page(){
   return (
     <div>
-        cominn soon...
+        coming soon...
     </div>
   )
 }
