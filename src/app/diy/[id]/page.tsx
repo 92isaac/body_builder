@@ -4,7 +4,7 @@ import Link from "next/link";
 import { GrPrevious } from 'react-icons/gr'
 
 
-export async function getData(id: string) {
+async function getData(id: string) {
   const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
 
   const response = await fetch(url, {
@@ -18,11 +18,11 @@ export async function getData(id: string) {
   return response.json();
 }
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+// interface PageProps {
+//   params: {
+//     id: string;
+//   };
+// }
 
 export default async function Page( params: any) {
   const data = await getData(params?.id);
